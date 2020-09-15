@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Teko:400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,500i,700,700i|Teko&display=swap" rel="stylesheet">
+  <link href="ezslots.css" rel="stylesheet" type="text/css" /> 
+  <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+ <script src="bootstrap/js/popper.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="jquery.easing.1.3.js"></script>
+  <script src="slot.js"></script>
+
+<title>LuckyDrawer</title>
+
+
+
+<style>
+body{
+	background-color: transparent;
+	background-image: url(images/bg.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+   button{
+	 font-family: 'Roboto', sans-serif;
+	 font-weight: 400;
+	 font-size: 25px;
+   }
+.window {
+	font-size:40px;
+	font-family:arial,helvetica,sans-serif;	
+	border:1px solid black;
+}
+.card.h1{
+
+	background-color: lightpink;
+	
+}
+.content{
+	font-size: 25px;
+	color:red;
+	font-weight: bold;
+	
+}
+.positionfx{
+	position: fixed;
+	bottom: 15%;
+
+}
+#blink {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: sans-serif;
+        color: red;
+        transition: 0.4s;
+      }
+footer{
+	position: fixed;
+	bottom: 0%;
+	right: 42%;
+	color: darkgreen;
+}	  
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="col-12  mx-auto text-center positionfx">
+	<div class="card col-2 mx-auto">
+		<div class="card-body">
+
+			<div class="row">
+				<div class="col">
+				  <img id="img1" src="images/logo.png" width="150px" class="img-fluid p-1">
+				</div>
+			  </div>
+			  <br>
+			  <br>
+			<div class="row">
+				<div class="col form-group input-group-lg">
+					<span id="ezslots3"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col form-group">
+				<button type="button" class="btn btn-sm btn-block btn-success" id="gogogo3"  >Draw</button>
+				
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+  
+	  <!-- Modal content-->
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <h4 class="modal-title"></h4>
+		</div>
+		<div class="modal-body">
+			<p id="blink">Blinking Effect with JavaScript</p>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+  
+	</div>
+  </div>
+
+<footer><small>copyright @rohan kumar || github @codeRohan7</small></footer>
+
+<script>
+
+	  var blink = document.getElementById('blink');
+      setInterval(function() {
+        blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+      }, 1000);
+	
+
+	
+	getFeedData();
+	function generate(data){
+		var mydata = data.result;
+		
+		var callbackFunction = function(res){
+			
+			var html = mydata[res];
+			var win = '<span>'+html.name+'</span>----<span>'+html.email+'</span>';
+			$("#blink").html(win);
+			$("#myModal").modal();
+		}
+		var winnerArray = "";
+		winnerArray = mydata.map((winner, i) => {
+			
+			return winner.email;
+		});
+		
+		
+		
+		
+		var ezslot3 = new EZSlots("ezslots3",{"reelCount":1,"symbols":[winnerArray],"height":150,"width":150, "callback":callbackFunction});
+	
+		$("#gogogo3").click(function(){
+			
+		console.log(ezslot3.spin());});
+	}
+	
+	
+
+</script>
+
+</body>
+</html>
