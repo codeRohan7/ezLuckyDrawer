@@ -7,7 +7,7 @@ Minimal Usage
     <link href="ezslots.css" rel="stylesheet" type="text/css" />
     <script src="jquery-1.11.3.js"></script>
     <script src="jquery.easing.1.3.js"></script>
-     <json Data from an sampale database >
+     <fetch() JSON Data from an sample json database file >
     <script src="slot.js"></script>
     
  
@@ -27,7 +27,7 @@ The CSS suggest the structure ezslots generates:
 * symbol - container for a single symbol that will show up in the window
 * content - where the symbol actually "lives" (needed for horizontal and vertical centering)
 * Data - i had used json data from an api to fetch the winner details .
-*winner - winner is shown using a modal.
+*winner - winner is shown using a modal
 Heights and width are manually and redundantly applied to ensure consistency with the animation.
 
 Also, each reel window is given the class "window_#" where # is its position in the ezslots div.
